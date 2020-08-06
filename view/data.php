@@ -15,7 +15,7 @@
         <?php
         include "./model/config.php";
 
-        $sql = mysqli_query ($config, "select *  from tb_transaksi INNER JOIN tb_kategori on tb_kategori.category_id = tb_transaksi.category_id");
+        $sql = mysqli_query ($config, "select *  from tb_transaksi LEFT JOIN tb_kategori on tb_kategori.category_id = tb_transaksi.category_id");
         while ($result = $sql->fetch_assoc()) {
         ?>
             <tr>

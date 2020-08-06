@@ -28,10 +28,10 @@
     </thead>
     <tbody>
         <?php
-        include "./model/config.php";
+        include "model/config.php";
 
-        $sql = mysqli_query ($config, "select *  from tb_transaksi INNER JOIN tb_kategori on tb_kategori.category_id = tb_transaksi.category_id");
-        while ($result = $sql->fetch_assoc()) {
+        $sqltoday = mysqli_query ($config, "select *  from tb_transaksi LEFT JOIN tb_kategori on tb_kategori.category_id = tb_transaksi.category_id");
+        while ($result = $sqltoday->fetch_assoc()) {
         ?>
             <tr>
                 <td><?php echo $result['date']; ?></td>
@@ -77,12 +77,12 @@
                     <option value="">-Pilih-</option>
                 <?php
                     include "./model/config.php";
-                    $sql = mysqli_query ($config, "SELECT * FROM tb_kategori group by category_name asc");
-                    while ($kategori = $sql->fetch_assoc()) {
+                    $sqlkategori = mysqli_query ($config, "SELECT * FROM tb_kategori group by category_name asc");
+                    while ($kategori = $sqlkategori->fetch_assoc()) {
                     ?>
-                        <option value="<?php echo $kategori['categoy_id']?>"><?php echo $kategori['category_name']?></option>
-                        <?php }
-                        ?>
+                    <option value="<?php echo $kategori['category_id'];?>"><?php echo $kategori['category_name'];?></option>
+                    <?php }
+                    ?>
                 </select>
             </div>
 
