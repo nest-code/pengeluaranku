@@ -1,0 +1,16 @@
+.container{
+padding-top: 20px;
+}
+
+.card{
+    margin-bottom: 20px;
+}
+
+footer{
+    background-color: #343a40;
+    padding-bottom: 20px;
+}
+
+footer h4 {
+    color: honeydew;
+}
