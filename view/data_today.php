@@ -11,6 +11,17 @@
                 </div>
             </div>
         </div>
+
+        <div class="col-4">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title"><?php echo rupiah($datatot['pengeluaran']) ?></h5>
+                    <p class="card-text">Pengeluaran dari tanggal : </p>
+                        <b> <?php echo $datatot['date'];?> - <?php echo date('Y-m-d');?> </b> 
+                </div>
+            </div>
+        </div>
+
     </div>
 </section>
 
@@ -29,15 +40,16 @@
     <tbody>
         <?php
         include "model/config.php";
-
-        $sqltoday = mysqli_query ($config, "select *  from tb_transaksi LEFT JOIN tb_kategori on tb_kategori.category_id = tb_transaksi.category_id");
+        date_default_timezone_set('Asia/Jakarta');
+        $today = date('Y-m-d');
+        $sqltoday = mysqli_query ($config, "select *  from tb_transaksi LEFT JOIN tb_kategori on tb_kategori.category_id = tb_transaksi.category_id where tb_transaksi.date='$today' order by tb_transaksi.date asc");
         while ($result = $sqltoday->fetch_assoc()) {
         ?>
             <tr>
                 <td><?php echo $result['date']; ?></td>
                 <td><?php echo $result['name']; ?></td>
                 <td><?php echo $result['category_name']; ?></td>
-                <td ><?php echo $result['price']; ?></td>
+                <td ><?php echo rupiah($result['price']) ?></td>
                 <td style="text-align:center">
                     <a href="?halaman=today&aksi=hapus&id=<?php echo $result ['transection_id']; ?>" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm"><i class="fa fa-trash fa-sm text-white-50"></i> Hapus</a>    
                 </td>
@@ -62,13 +74,12 @@
         <form action="?halaman=today&aksi=add" method="POST"> 
             <div class="form-group">
                 <label>Tanggal</label>
-                
                 <input type="date" class="form-control" name="tanggal" value="<?php echo date('Y-m-d') ?>">
             </div>
 
             <div class="form-group">
                 <label>Nama</label>
-                <input type="text" class="form-control" name="nama"  >
+                <input type="text" class="form-control" name="nama" required  >
             </div>
 
             <div class="form-group">
@@ -88,7 +99,7 @@
 
             <div class="form-group">
                 <label>Jumlah</label>
-                <input type="text" class="form-control" name="harga"  >
+                <input type="text" class="form-control" name="harga" required >
             </div>
 
             <div class="form-group">

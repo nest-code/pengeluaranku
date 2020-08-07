@@ -4,7 +4,7 @@
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title"><?php echo rupiah($data['pengeluaran']) ?></h5>
-                    <p class="card-text">Pengeluaran Harian</p>
+                    <p class="card-text">Pengeluaran Hari Ini</p>
                     <a href="?halaman=today" class="btn btn-primary">Lihat</a>
                 </div>
             </div>
@@ -23,9 +23,9 @@
         <div class="col-4">
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title">Rp. 0</h5>
+                    <h5 class="card-title"><?php echo rupiah($dompet) ?></h5>
                     <p class="card-text">Dompet</p>
-                    <a href="#" class="btn btn-primary">Lihat</a>
+                    <a href="#" class="btn btn-primary" disabled>Lihat</a>
                 </div>
             </div>
         </div>
