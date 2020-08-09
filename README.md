@@ -6,7 +6,7 @@
 - MCV
 
 
-- Bootstrap 4.5 (Alpha)
+- Bootstrap 5 (Alpha)
 - Maria DB
 - SQL
 - PHP Native
