@@ -15,7 +15,7 @@
         <?php
         include "./model/config.php";
         
-        $sql = mysqli_query ($config, "select *  from tb_transaksi LEFT JOIN tb_kategori on tb_kategori.category_id = tb_transaksi.category_id order by tb_transaksi.date asc");
+        $sql = mysqli_query ($config, "select *  from tb_transaksi LEFT JOIN tb_kategori on tb_kategori.category_id = tb_transaksi.category_id order by tb_transaksi.date DESC");
         while ($result = $sql->fetch_assoc()) {
         ?>
             <tr>
@@ -33,7 +33,7 @@
     <footer class="footer">
       <div class="container">
         <div class="right" align="right"> 
-          <h4>Total Pengeluaran :<?php echo rupiah($data['pengeluaran']) ?></h4>
+          <h4>Total Pengeluaran :<?php echo rupiah($datatot['pengeluaran']) ?></h4>
         </div>  
 
       </div>

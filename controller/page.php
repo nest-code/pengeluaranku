@@ -26,9 +26,9 @@ if ($halaman =="beranda") {
         include 'model/delete_data.php';
       }
 
-}elseif ($halaman =="kontak"){
+}elseif ($halaman =="laporan"){
   if ($aksi== "") {
-    include 'page/kontak.php';
+    include './view/laporan.php';
   }elseif ($aksi == "select_") {
     include 'data/jenis_select.php';
   }
