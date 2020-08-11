@@ -13,8 +13,8 @@ if ($halaman =="beranda") {
 }elseif ($halaman =="cek"){
       if ($aksi== "") {
         include './view/data.php';
-      }elseif ($aksi == "select_pengumuman") {
-        include 'data/select_sampah.php';
+      }elseif ($aksi == "all") {
+        include './view/data_all.php';
       }
 
 }elseif ($halaman =="today"){
